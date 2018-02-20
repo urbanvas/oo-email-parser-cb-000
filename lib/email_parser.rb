@@ -4,19 +4,25 @@
 # or whitespace (' ').
 class EmailParser
 
-  attr_accessor :mail
-
-  def initialize(mail)
-    @arr << mail.delete(",").split
-  end
-
-  def arr
-    @arr
-  end
-
-  def parse
-    @arr.uniq
-  end
+  attr_accessor :email
 
 
+    attr_accessor :emails
+
+    def initialize(email)
+      @lists = []
+      email_arr = email.split(" ")
+      email_arr.each do |mail|
+        mail.include?(',') ? @lists << mail.slice(0...-1) : @lists << mail
+      end
+    end
+
+    def all
+      @lists
+    end
+
+
+    def parse
+      all.uniq
+    end
 end
