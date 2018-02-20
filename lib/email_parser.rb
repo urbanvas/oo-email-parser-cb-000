@@ -7,7 +7,6 @@ class EmailParser
   attr_accessor :mail
 
   def initialize(mail)
-    @arr = ""
     @arr << mail.delete(",").split
   end
 
