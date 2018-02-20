@@ -7,14 +7,17 @@ class EmailParser
   attr_accessor :mail
 
   def initialize(mail)
-    arr = []
-    arr << mail.delete(",").split
+    @arr = []
+    @arr << mail.delete(",").split
   end
 
   def arr
-
+    @arr
   end
 
+  def parse
+    @arr.uniq
+  end
 
 
 end
